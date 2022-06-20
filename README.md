@@ -10,4 +10,6 @@ mysqldump -uroot -proot --host=127.0.0.1 --port=3306 --skip-extended-insert --sk
 但实际操作的时候锁定会导致卡死，所以跳过锁定，也可能存在数据量过大，备份时间过长，一直锁表，导致业务sql阻塞。不锁表在备份时会造成数据不一致。
 由于我不需要强一致性，所以加了这个参数。  
 --skip-add-locks跳过加锁，与--skip-lock-tables作用类似。  
---set-gtid-purged=off该参数作用：https://www.cnblogs.com/ybyqjzl/p/12428039.html
+--set-gtid-purged=off该参数作用：https://www.cnblogs.com/ybyqjzl/p/12428039.html  
+test数据库名  
+gzip导出的sql文件进行压缩
