@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.audience.backup.daock.ClickhouseMapper">
+    <select id="selectList" resultType="com.audience.backup.entity.ClusterInfo">
+        select * from ceshi202108241548
+    </select>
+    
+    <select id="getString" resultType="string">
+        SELECT * FROM ceshi202108201448 limit #{val},500000 FORMAT TabSeparated
+    </select>
+
+    <select id="getCount" resultType="long">
+        SELECT count(*) FROM ceshi202108201448
+    </select>
+</mapper>
