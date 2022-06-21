@@ -14,8 +14,19 @@ import javax.annotation.Resource;
 @Component
 public class MysqlDumpJob implements Job {
 
+    private static MysqlParam mysqlParam;
+
+    /**
+     * @Author audience7510
+     * @Date 2022/6/21
+     * @Description set方法延迟注入
+     * 原因：在使用@Component注解将bean实例化到spring容器内的时候，@Resource或者@Autowired是在这个bean之中的，
+     * 由于@Autowired还未完成自动装载，所以导致mysqlParam为null
+     **/
     @Resource
-    private MysqlParam mysqlParam;
+    public void setMysqlParam(MysqlParam mysqlParam) {
+        MysqlDumpJob.mysqlParam = mysqlParam;
+    }
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
