@@ -1,8 +1,6 @@
 package com.audience.backup.service.impl;
 
-import com.audience.backup.entity.SysUnit;
 import com.audience.backup.service.MysqlService;
-import com.audience.backup.dao.MysqlMapper;
 import com.audience.backup.entity.MysqlParam;
 import com.audience.backup.mysql.MySqlBackup;
 import lombok.extern.slf4j.Slf4j;
@@ -10,21 +8,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Slf4j
 @Service
 public class MysqlServiceImpl implements MysqlService {
 
     @Resource
-    private MysqlMapper mysqlMapper;
-    @Resource
     private MysqlParam mysqlParam;
 
-    @Override
-    public List<SysUnit> selectList() {
-        return mysqlMapper.selectList();
-    }
 
     @Override
     public void mysqlBackup() {

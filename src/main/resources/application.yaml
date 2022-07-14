@@ -11,18 +11,18 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     #clickhouse
-    ck:
-      type: com.alibaba.druid.pool.DruidDataSource
-      driverClassName: ru.yandex.clickhouse.ClickHouseDriver
-      url: jdbc:clickhouse://127.0.0.1:1234/test?socket_timeout=300000
-      usr: root
-      password: root
-      initialSize: 10
-      maxActive: 100
-      minIdle: 10
-      maxWait: 6000
-      base: test
-      cluster: clickhouse_cluster
-      selectType: IDC
-      task: 0/15 * * * * ?
+#    ck:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      driverClassName: ru.yandex.clickhouse.ClickHouseDriver
+#      url: jdbc:clickhouse://127.0.0.1:1234/test?socket_timeout=300000
+#      usr: root
+#      password: root
+#      initialSize: 10
+#      maxActive: 100
+#      minIdle: 10
+#      maxWait: 6000
+#      base: test
+#      cluster: clickhouse_cluster
+#      selectType: IDC
+#      task: 0/15 * * * * ?
 
