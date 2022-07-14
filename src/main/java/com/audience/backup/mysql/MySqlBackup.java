@@ -15,9 +15,10 @@ import java.text.SimpleDateFormat;
 @Slf4j
 public class MySqlBackup {
 
-    private static String dated = new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+//    private static String dated = new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 
     public static void dbbackup(String ip,String port,String username,String password,String db) {
+        String dated = new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 //        String winPath = "D:\\sqlBackup";
         String linuxPath = "/usr/local/sqlbackup";
         //保存路径，日期+mysqldump，例如：2020-12-12
