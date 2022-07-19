@@ -17,7 +17,7 @@
 
 # clickhouse备份
 使用clickhouse-backup第三方工具，对clickhouse进行备份  
-1、首先clickhouse所在服务器安装clickhouse-backup  
+1、首先clickhouse所在服务器安装、配置clickhouse-backup  
 2、执行clickhouse-backup备份命令  
 3、对备份的目录进行存储服务器存储()  
 备份命令：`clickhouse-backup create -t db_ck1.table1 java_test_backup`
