@@ -13,3 +13,16 @@ mysqldump -uroot -proot --host=127.0.0.1 --port=3306 --skip-extended-insert --sk
 --set-gtid-purged=off该参数作用：https://www.cnblogs.com/ybyqjzl/p/12428039.html  
 test数据库名  
 gzip导出的sql文件进行压缩
+
+# clickhouse备份
+使用clickhouse-backup第三方工具，对clickhouse进行备份  
+1、首先clickhouse所在服务器安装clickhouse-backup  
+2、执行clickhouse-backup备份命令  
+3、对备份的目录进行存储服务器存储()  
+备份命令：clickhouse-backup create -t db_ck1.table1 java_test_backup
+
+# 简单集成了一下定时调度
+使用Quartz进行定时调度
+
+# 启动服务  
+nohup java -jar backup-0.0.1-SNAPSHOT.jar > backup.log &

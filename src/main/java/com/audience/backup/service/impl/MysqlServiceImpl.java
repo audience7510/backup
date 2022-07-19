@@ -1,8 +1,8 @@
 package com.audience.backup.service.impl;
 
-import com.audience.backup.service.MysqlService;
 import com.audience.backup.entity.MysqlParam;
 import com.audience.backup.mysql.MySqlBackup;
+import com.audience.backup.service.MysqlService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,6 @@ public class MysqlServiceImpl implements MysqlService {
 
     @Resource
     private MysqlParam mysqlParam;
-
 
     @Override
     public void mysqlBackup() {

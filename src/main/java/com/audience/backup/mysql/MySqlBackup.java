@@ -19,6 +19,7 @@ public class MySqlBackup {
 
     public static void dbbackup(String ip,String port,String username,String password,String db) {
         String dated = new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+        log.info("备份日期为："+dated);
 //        String winPath = "D:\\sqlBackup";
         String linuxPath = "/usr/local/sqlbackup";
         //保存路径，日期+mysqldump，例如：2020-12-12

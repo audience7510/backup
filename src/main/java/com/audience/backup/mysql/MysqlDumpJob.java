@@ -3,16 +3,16 @@ package com.audience.backup.mysql;
 import com.audience.backup.entity.MysqlParam;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
 @Slf4j
 @Component
-public class MysqlDumpJob implements Job {
+public class MysqlDumpJob extends QuartzJobBean {
 
     private static MysqlParam mysqlParam;
 
@@ -20,16 +20,14 @@ public class MysqlDumpJob implements Job {
      * @Author audience7510
      * @Date 2022/6/21
      * @Description set方法延迟注入
-     * 原因：在使用@Component注解将bean实例化到spring容器内的时候，@Resource或者@Autowired是在这个bean之中的，
-     * 由于@Autowired还未完成自动装载，所以导致mysqlParam为null
-     **/
+    **/
     @Resource
     public void setMysqlParam(MysqlParam mysqlParam) {
         MysqlDumpJob.mysqlParam = mysqlParam;
     }
 
     @Override
-    public void execute(JobExecutionContext context) throws JobExecutionException {
+    protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         String url = mysqlParam.getUrl();
         String s = StringUtils.substringBetween(url, "//", "?");
         String[] split = s.split(":");
@@ -45,6 +43,9 @@ public class MysqlDumpJob implements Job {
         log.info("username："+username);
         String password = mysqlParam.getPassword();
         log.info("password："+password);
+        log.info("\n");
+        log.info("数据库备份执行开始");
         MySqlBackup.dbbackup(ip,port,username,password,db);
+        log.info("数据库备份执行结束");
     }
 }
