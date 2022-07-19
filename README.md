@@ -1,4 +1,4 @@
-# mysql_backup
+# mysql备份
 整个备份操作，是对mysqldump命令的操作，具体命令如下：  
 `mysqldump -uroot -proot --host=127.0.0.1 --port=3306 --skip-extended-insert --skip-lock-tables --skip-add-locks --set-gtid-purged=off test | gzip > /usr/local/sqlbackup/test.sql.gz`  
 释义：  
